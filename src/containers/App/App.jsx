@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { toast } from "react-toastify";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import Gallery from "../../components/Gallery/Gallery";
 import Modal from "../../components/Modal/Modal";
 import fetchImages from "../../services/search-api";
 import mapper from "../../services/mapper";
+import "react-toastify/dist/ReactToastify.css";
 import styles from "./App.module.css";
 
 class App extends Component {
@@ -22,7 +24,7 @@ class App extends Component {
         images: mapper(fetchedImages.data.hits),
       });
     } catch (error) {
-      console.log(error);
+      toast.error(`Error while fetching: ${error}`);
     }
   };
 
@@ -43,7 +45,7 @@ class App extends Component {
             behavior: "smooth",
           });
         } catch (error) {
-          console.log(error);
+          toast.error(`Error while fetching: ${error}`);
         }
       },
     );
