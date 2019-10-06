@@ -10,7 +10,7 @@ const PhotoCard = ({
   comments,
   downloads,
   tags,
-  // onClick,
+  onClick,
 }) => (
   <div className={styles.photoСard}>
     <img src={imgLink} alt={tags} className={styles.photoСardImg} />
@@ -36,10 +36,13 @@ const PhotoCard = ({
 
     <button
       type="button"
+      data-link={largeImgLink}
       className={styles.fullscreenButton}
-      // onClick={onClick(largeImgLink)}
+      onClick={onClick}
     >
-      <i className="material-icons">zoom_out_map</i>
+      <i className="material-icons" data-link={largeImgLink}>
+        zoom_out_map
+      </i>
     </button>
   </div>
 );

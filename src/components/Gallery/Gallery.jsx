@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import styles from "./Gallery.module.css";
 import PhotoCard from "./PhotoCard/PhotoCard";
 
-const Gallery = ({ images, onclick }) => (
+const Gallery = ({ images, onFullScreenclick, onLoadMoreClick }) => (
   <ul className={styles.gallery}>
     {images.map(image => (
-      <PhotoCard key={image.id} {...image} onClick={onclick} />
+      <PhotoCard key={image.imgLink} {...image} onClick={onFullScreenclick} />
     ))}
-    <button className={styles.button} type="button">
+    <button className={styles.button} onClick={onLoadMoreClick} type="button">
       Load more
     </button>
   </ul>
@@ -27,7 +27,8 @@ Gallery.propTypes = {
       tags: PropTypes.string,
     }).isRequired,
   ).isRequired,
-  onclick: PropTypes.func.isRequired,
+  onFullScreenclick: PropTypes.func.isRequired,
+  onLoadMoreClick: PropTypes.func.isRequired,
 };
 
 export default Gallery;
