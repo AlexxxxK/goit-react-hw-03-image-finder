@@ -12,18 +12,12 @@ class App extends Component {
     images: [],
   };
 
-  handleSearchInputChange = ({ target }) => {
-    this.setState({ query: target.value });
-  };
-
-  handleSearchFormSubmit = async event => {
-    event.preventDefault();
-    const { query, page } = this.state;
+  handleSearchFormSubmit = async searchInputValue => {
+    this.setState({ query: searchInputValue, page: 1 });
     try {
-      const fetchedImages = await fetchImages(query, page);
+      const fetchedImages = await fetchImages(searchInputValue, 1);
       this.setState({
         images: mapper(fetchedImages.data.hits),
-        query: "",
       });
     } catch (error) {
       console.log(error);
@@ -34,11 +28,7 @@ class App extends Component {
     const { query, images } = this.state;
     return (
       <div className={styles.app}>
-        <SearchForm
-          value={query}
-          onChange={this.handleSearchInputChange}
-          onSubmit={this.handleSearchFormSubmit}
-        />
+        <SearchForm value={query} onSubmit={this.handleSearchFormSubmit} />
         <Gallery images={images} />
       </div>
     );
