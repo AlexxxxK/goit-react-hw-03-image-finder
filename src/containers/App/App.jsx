@@ -23,6 +23,7 @@ class App extends Component {
       const fetchedImages = await fetchImages(query, page);
       this.setState({
         images: mapper(fetchedImages.data.hits),
+        query: "",
       });
     } catch (error) {
       console.log(error);
