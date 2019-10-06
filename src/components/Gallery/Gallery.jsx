@@ -4,10 +4,13 @@ import styles from "./Gallery.module.css";
 import PhotoCard from "./PhotoCard/PhotoCard";
 
 const Gallery = ({ images, onclick }) => (
-  <ul className="gallery">
+  <ul className={styles.gallery}>
     {images.map(image => (
       <PhotoCard key={image.id} {...image} onClick={onclick} />
     ))}
+    <button className={styles.button} type="button">
+      Load more
+    </button>
   </ul>
 );
 

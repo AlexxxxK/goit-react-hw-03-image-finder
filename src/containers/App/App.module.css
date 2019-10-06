@@ -1,1 +1,7 @@
-/* your css code */
+.app {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 24px;
+  margin-right: auto;
+  margin-left: auto;
+}

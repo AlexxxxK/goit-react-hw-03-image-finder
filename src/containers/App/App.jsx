@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <div className={styles.app}>
         <SearchForm value={query} onSubmit={this.handleSearchFormSubmit} />
-        <Gallery images={images} />
+        {images.length > 0 && <Gallery images={images} />}
       </div>
     );
   }

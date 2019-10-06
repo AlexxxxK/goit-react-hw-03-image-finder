@@ -13,7 +13,7 @@ const PhotoCard = ({
   // onClick,
 }) => (
   <div className={styles.photoСard}>
-    <img src={imgLink} alt={tags} className={styles.img} />
+    <img src={imgLink} alt={tags} className={styles.photoСardImg} />
 
     <div className={styles.stats}>
       <p className={styles.statsItem}>
